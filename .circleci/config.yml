@@ -11,6 +11,10 @@ jobs:
           name: "Say hello"
           command: "echo Hello, World!"
       - run:
+          name: "install ansible"
+          command: |
+            pip install ansible
+      - run:
           name: "Run ssh jobs"
           command: |
             cd ..
