@@ -20,8 +20,7 @@ jobs:
       - run:
           name: "Run ssh jobs"
           command: |
-            cd ..
-            ansible-playbook main.yml -i inventory.txt
+            ansible-playbook ansible/main.yml -i ansible/inventory.txt
 
 workflows:
   say-hello-workflow:
