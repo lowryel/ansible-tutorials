@@ -16,7 +16,7 @@ jobs:
       - run:
           name: "install openssh"
           command: |
-            pip install openssh
+            apt install openssh
       - run:
           name: "install ansible"
           command: |
