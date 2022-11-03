@@ -1,6 +1,6 @@
 
 - hosts: web
-  user: lowry
+  user: ubuntu
   become: true
   become_method: sudo
   become_user: root
