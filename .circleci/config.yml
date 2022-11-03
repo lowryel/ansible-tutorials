@@ -16,8 +16,8 @@ jobs:
       - run:
           name: "install openssh"
           command: |
-            apt-get install openssh-server
-            systemctl enable ssh --now
+            sudo apt-get install openssh-server
+            sudo systemctl enable ssh --now
       - run:
           name: "install ansible"
           command: |
