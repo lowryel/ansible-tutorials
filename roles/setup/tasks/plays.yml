@@ -15,9 +15,8 @@
     name: "apache2"
     state: present
 
-# - shell: echo "hello world"
+- shell: echo "hello world"
 
-# - name: Install node server
 
 # - name: Print a message
 #   ansible.builtin.debug:
