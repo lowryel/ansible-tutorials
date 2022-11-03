@@ -1,0 +1,32 @@
+# playbook plays
+
+- name: "Install Node.js and NPM"
+  apt:
+    name:
+      - "nodejs"
+      - "npm"
+    state: latest
+    update_cache: yes
+
+# roles/setup/tasks/plays.yml
+
+- name: Install web server
+  ansible.builtin.apt:
+    name: "apache2"
+    state: present
+
+# - shell: echo "hello world"
+
+# - name: Install node server
+
+# - name: Print a message
+#   ansible.builtin.debug:
+#     msg: "this task runs before the example role"
+
+# - name: Include the example role
+#   include_role:
+#     name: example
+
+# - name: Print a message
+#   ansible.builtin.debug:
+#     msg: "this task runs after the example role"

@@ -1,0 +1,9 @@
+
+- hosts: web
+  user: lowry
+  become: true
+  become_method: sudo
+  become_user: root
+  roles:
+  - setup
+
