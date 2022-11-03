@@ -3,10 +3,13 @@ version: 2.1
 jobs:
   say-hello:
     docker:
-      - image: python:3.7
+      - image: python:3.10
     # Add steps to the job
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "1e:9a:76:fb:14:e0:fd:79:f9:3b:19:f4:2c:ef:db:85"
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
