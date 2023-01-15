@@ -1,9 +1,11 @@
 
-- hosts: web
-  user: ubuntu
+- hosts: all
+  user: lowry
   become: true
   become_method: sudo
   become_user: root
   roles:
   - setup
+  
+
 

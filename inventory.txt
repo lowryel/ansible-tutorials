@@ -1,2 +1,2 @@
-[web]
-3.87.28.44
+[all]
+localhost

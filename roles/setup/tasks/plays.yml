@@ -1,5 +1,4 @@
 # playbook plays
-
 - name: "Install Node.js and NPM"
   apt:
     name:
@@ -17,6 +16,10 @@
 
 - shell: echo "hello world"
 
+- name: install geerlingguy role
+  apt: name={{items}} state=installed
+  with_items:
+    - git
 
 # - name: Print a message
 #   ansible.builtin.debug:
