@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-          fingerprints: [""]
+          fingerprints: ["75:f4:6f:68:2f:45:1e:47:79:3f:4f:9d:98:7a:3c:7b"]
       - run:
           name: "Say hello"
           command: |
