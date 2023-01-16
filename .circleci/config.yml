@@ -1,6 +1,33 @@
 version: 2.1
 
 jobs:
+  kreate-server:
+    docker:
+      - image: python:3.10.5-alpine3.16
+    steps:
+      - checkout
+      - run: 
+          name: install terraform
+          command: |
+            apt update
+            apt-get install terraform
+      - run: 
+          name: set aws environment variables
+          command: |
+            export AWS_REGION=us-east-1
+            export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+            export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - run:
+          name: deploy an instance
+          command: |
+            cd ../../aws-ec2-instance
+            terraform init
+      - run:
+          name: terraform apply step
+          command: |
+            cd ../../aws-ec2-instance
+            terraform apply
+
   say-hello:
     docker:
       - image: python:3.10.5-alpine3.16
@@ -26,7 +53,11 @@ jobs:
           command: |
             ansible-playbook main.yml -i inventory.txt
 
+
+
 workflows:
   say-hello-workflow:
     jobs:
-      - say-hello
+      - kreate-server
+      - say-hello:
+          requires: [kreate-server]
