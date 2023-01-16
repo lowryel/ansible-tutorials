@@ -1,4 +1,5 @@
 # playbook plays
+
 - name: "Install Node.js and NPM"
   apt:
     name:
