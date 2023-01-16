@@ -9,7 +9,7 @@ jobs:
       - run: 
           name: install terraform
           command: |
-            apk add --update terraform:v1.3.3
+            apk add --update terraform
       - run: 
           name: set aws environment variables
           command: |
