@@ -1,31 +1,6 @@
 version: 2.1
 
 jobs:
-  kreate-server:
-    docker:
-      - image: python:3.7-alpine3.11
-    steps:
-      - checkout
-      - run: 
-          name: install terraform
-          command: |
-            apk add --update terraform
-      - run: 
-          name: set aws environment variables
-          command: |
-            export AWS_REGION=us-east-1
-            export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-            export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-      - run:
-          name: deploy an instance
-          command: |
-            cd aws-ec2Instance
-            terraform init -input=false
-      - run:
-          name: terraform apply step
-          command: |
-            cd aws-ec2Instance
-            terraform apply -input=false -auto-approve
 
   say-hello:
     docker:
@@ -58,6 +33,4 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - kreate-server
-      - say-hello:
-          requires: [kreate-server]
+      - say-hello
