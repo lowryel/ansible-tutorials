@@ -1,28 +1,18 @@
 terraform {
   required_providers {
     aws = {
-      version = "~> 2.13.0"
-    }
-    random = {
-      version = ">= 2.1.2"
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
     }
   }
 
-  required_version = "~> 1.3.3"
+  required_version = ">= 1.2.0"
 }
 
 provider "aws" {
   region = "us-east-1"
 }
 
-# resource "aws_instance" "web" {
-#   ami           = "ami-0149b2da6ceec4bb0"
-#   instance_type = "t2.micro"
-#   key_name      = "terra"
-#   tags = {
-#     Name = var.instance_name
-#   }
-# }
 
 resource "aws_vpc" "my_vpc" {
   cidr_block           = "10.0.0.0/16"
