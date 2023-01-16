@@ -19,12 +19,12 @@ jobs:
       - run:
           name: deploy an instance
           command: |
-            cd aws-ec2instance
+            cd aws-ec2Instance
             terraform init
       - run:
           name: terraform apply step
           command: |
-            cd aws-ec2instance
+            cd aws-ec2Instance
             terraform apply
 
   say-hello:
