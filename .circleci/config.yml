@@ -20,12 +20,12 @@ jobs:
           name: deploy an instance
           command: |
             cd aws-ec2Instance
-            terraform init
+            terraform init -input=false
       - run:
           name: terraform apply step
           command: |
             cd aws-ec2Instance
-            terraform apply
+            terraform apply -input=false -auto-approve
 
   say-hello:
     docker:
