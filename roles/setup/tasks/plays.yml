@@ -22,14 +22,7 @@
   with_items:
     - git
 
-# - name: Print a message
-#   ansible.builtin.debug:
-#     msg: "this task runs before the example role"
-
-# - name: Include the example role
-#   include_role:
-#     name: example
-
-# - name: Print a message
-#   ansible.builtin.debug:
-#     msg: "this task runs after the example role"
+- name: create app directory
+  file:
+    path: $HOME/webservice
+    state: directory
