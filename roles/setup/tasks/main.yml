@@ -14,10 +14,10 @@
 #     state: present
 
 
-- name: install geerlingguy role
-  apt: name= {{ items }} state=installed
-  with_items:
-    - git
+# - name: install geerlingguy role
+#   apt: name= {{ items }} state=installed
+#   with_items:
+#     - git
 
 # - name: create app directory
 #   file:
