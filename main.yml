@@ -22,7 +22,6 @@
       apt:
         name: python3
         state: present
-        update_cache: yes
 
     - name: "create a directory"
       # skip-tags: always
