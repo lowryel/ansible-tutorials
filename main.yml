@@ -18,7 +18,7 @@
         delay: 1
 
     - name: "install python for ansible"
-      tags: always
+      # tags: always
       apt:
         name: python3
         state: present
