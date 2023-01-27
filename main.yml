@@ -18,11 +18,17 @@
         delay: 1
 
     - name: "install python for ansible"
-      apt: 
+      apt:
         name: python3
-        state: latest
+        state: present
         update_cache: yes
 
-  
+    - name: "create a directory"
+      file:
+        path: $HOME/webservice
+        state: directory
 
-
+    - name: Install apache2 server
+      ansible.builtin.apt:
+        name: apache2
+        state: present

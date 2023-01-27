@@ -1,0 +1,25 @@
+# playbook plays
+- name: "Install Node.js and NPM"
+  apt:
+    name:
+      - "nodejs"
+      - "npm"
+    state: present
+    update_cache: yes
+
+
+# - name: Install web server
+#   ansible.builtin.apt:
+#     name: "apache2"
+#     state: present
+
+
+- name: install geerlingguy role
+  apt: name= {{ items }} state=installed
+  with_items:
+    - git
+
+# - name: create app directory
+#   file:
+#     path: $HOME/webservice
+#     state: directory
