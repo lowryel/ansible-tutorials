@@ -18,17 +18,25 @@
         delay: 1
 
     - name: "install python for ansible"
+      tags: always
       apt:
         name: python3
         state: present
         update_cache: yes
 
     - name: "create a directory"
+      # skip-tags: always
       file:
-        path: $HOME/webservice
+        path: /etc/webservice
         state: directory
 
     - name: Install apache2 server
       ansible.builtin.apt:
         name: apache2
         state: present
+
+    - name: copy
+      copy:
+        src: ./test.html
+        dest: /var/www/html
+
