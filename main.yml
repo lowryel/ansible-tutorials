@@ -21,6 +21,7 @@
       # tags: always
       apt:
         name: python3
+        update_cache: yes
         state: present
 
     - name: "create a directory"
@@ -30,11 +31,12 @@
         state: directory
 
     - name: Install apache2 server
-      ansible.builtin.apt:
+      apt:
         name: apache2
+        update_cache: yes
         state: present
 
-    - name: copy
+    - name: copy file to remote
       copy:
         src: ./test.html
         dest: /var/www/html
