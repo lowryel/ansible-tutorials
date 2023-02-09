@@ -36,6 +36,11 @@
         update_cache: yes
         state: present
 
+    # - name: delete a file:
+    #   file:
+    #     path: /var/www/html/test.html
+    #     state: absent 
+
     - name: copy file to remote
       copy:
         src: ./test.html
