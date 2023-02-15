@@ -1,10 +1,10 @@
 # playbook plays
-- name: "Install Node.js and NPM"
-  apt:
-    name: install nodejs and npm
-    state: present
-    update_cache: yes
-      - nodejs
-      - npm
+# - name: "Install Node.js and NPM"
+#   apt:
+#     name: nodejs and npm
+#     update_cache: yes
+#     state: present
+#       - nodejs
+#       - npm
 
 
