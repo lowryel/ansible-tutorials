@@ -6,14 +6,13 @@ jobs:
       - image: python:3.10.5-alpine3.16
     # Add steps to the job
     steps:
+      - checkout 
 
       - run:
           name: "install openssh and git"
           command: |
             apk add --update openssh
             apk add --update git
-
-      # - checkout 
 
       - add_ssh_keys:
           fingerprints: ["99:b5:f2:22:73:cc:68:4c:0c:10:a5:30:27:66:37:6d"]
