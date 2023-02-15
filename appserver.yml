@@ -46,4 +46,5 @@
         src: ./test.html
         dest: /var/www/html
 
-
+    - name: start server
+      service: name=httpd state=started enabled=yes
