@@ -30,11 +30,17 @@
         path: /etc/webservice
         state: directory
 
-    - name: Install apache2 server
-      apt:
-        name: apache2
-        update_cache: yes
-        state: present
+    # - name: Install apache2 server
+    #   apt:
+    #     name: apache2
+    #     update_cache: yes
+    #     state: present
+
+    - name: Install Apache.
+      yum: name={{ item }} state=present
+      with_items:
+      - httpd
+      - httpd-devel
 
     # - name: delete a file:
     #   file:
