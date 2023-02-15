@@ -45,6 +45,5 @@
       copy:
         src: ./test.html
         dest: /var/www/html
-    
-    - name: install django
+
 

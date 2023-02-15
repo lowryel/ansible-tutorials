@@ -1,8 +1,12 @@
 # playbook plays
 - name: "Install Node.js and NPM"
   apt:
-    name:
-      - "nodejs"
-      - "npm"
+    name: {{ item }}
     state: present
     update_cache: yes
+
+    with_items:
+      - "nodejs"
+      - "npm"
+
+
