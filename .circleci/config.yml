@@ -6,6 +6,13 @@ jobs:
       - image: python:3.10.5-alpine3.16
     # Add steps to the job
     steps:
+
+      - run:
+          name: "install openssh and git"
+          command: |
+            apk add --update openssh
+            apk add --update git
+
       - checkout
 
       - add_ssh_keys:
@@ -14,11 +21,6 @@ jobs:
           name: "Say hello"
           command: |
             echo "Hello World!"
-      - run:
-          name: "install openssh"
-          command: |
-            apk add --update openssh
-            apk add --update git
 
       - run:
           name: "install ansible"
