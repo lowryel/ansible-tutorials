@@ -29,7 +29,7 @@ jobs:
       - run:
           name: "Run ssh jobs"
           command: |
-            pwd
+            ls
             ansible-playbook appserver.yml -i inventory.txt
 
 workflows:
