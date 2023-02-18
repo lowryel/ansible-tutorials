@@ -36,11 +36,6 @@
         update_cache: yes
         state: present
 
-    # - name: Install Apache.
-    #   apt: name={{ item }} state=present
-    #   with_items:
-    #   - httpd
-    #   - httpd-devel
 
     # - name: delete a file:
     #   file:
