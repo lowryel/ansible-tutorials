@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: python:3.10.5-alpine3.16
     # Add steps to the job
-    parallelism: 2
+    # parallelism: 2
     steps:
       - checkout 
 
