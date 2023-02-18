@@ -26,13 +26,49 @@ jobs:
           name: "install ansible"
           command: |
             pip install ansible
+
+      # persist file to a different job
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - test.html
+
+      # save cache
+      - save_cache:
+          paths:
+            - "churchweb/migration"
+          key: save-migration
+
+      # ansible server ssh
       - run:
           name: "Run ssh jobs"
           command: |
             ls
             ansible-playbook appserver.yml -i inventory.txt
 
+
+  ec2job2:
+    docker:
+      - image: python:3.10.5-alpine3.16
+    steps:
+      - run: checkout
+
+      - run:
+          name: just attach file to workspace
+          command: |
+            echo $CIRCLE_WORKFLOW_ID
+
+      - attach_workspace:
+          at: ./
+      
+      - run: 
+          name: content of test.html
+          command: |
+            cat test.html
+
 workflows:
   server-workflow:
     jobs:
       - ec2
+      - ec2job2:
+          requires: [ec2]
